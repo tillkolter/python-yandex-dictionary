@@ -11,7 +11,7 @@ Usage
 
 
 ```python
-from yandex_translate import YandexDictionary
+from yandex_dictionary import YandexDictionary
 dictionary = YandexDictionary('Your API key here.')
 print('Languages:', dictionary.langs)
 print('Dictionary directions:', dictionary.directions)
