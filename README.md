@@ -1,39 +1,29 @@
-python-yandex-translate [![Build Status](https://travis-ci.org/tyrannosaurus/python-yandex-translate.png?branch=master)](https://travis-ci.org/tyrannosaurus/python-yandex-translate)
+python-yandex-dictionary
 =======================
 
-Python module for Yandex.Translate API.
+Python module for Yandex.Dictionary API.
 
-This module is fully-compatible with Python 2.7+ and 3.3+ versions.
+Thanks to tyrannosaurus for well done API concept (https://github.com/tyrannosaurus/python-yandex-translate).
 
-
-Installation
-======================
-Use `pip`:
-
-```bash
-pip install yandex.translate
-```
 
 Usage
 =======================
 
 
 ```python
-from yandex_translate import YandexTranslate
-translate = YandexTranslate('Your API key here.')
-print('Languages:', translate.langs)
-print('Translate directions:', translate.directions)
-print('Detect language:', translate.detect('Привет, мир!'))
-print('Translate:', translate.translate('Привет, мир!', 'ru-en'))  # or just 'en'
+from yandex_translate import YandexDictionary
+dictionary = YandexDictionary('Your API key here.')
+print('Languages:', dictionary.langs)
+print('Dictionary directions:', dictionary.directions)
+print('Word translations:', dictionary.lookup('Привет', 'ru', 'en'))  # or just 'en'
 ```
 
 This will output:
 
 ```
 Languages: {'en', 'el', 'ca', 'it', ..}
-Translate directions: ['az-ru', 'be-bg', 'be-cs', ..]
-Detect language: 'ru'
-Translate: {'text': ['Hello, world!'], 'code': 200, 'lang': 'ru-en'}
+Translate directions: '['az-ru', 'be-bg', 'be-cs', ..]'
+Translate: '{"head":{},"def":[{"text":"hello","pos":"noun","ts":"ˈheˈləʊ","tr":[{"text":"привет","pos":"существительное","syn":[{"text":"приветствие","pos":"существительное","gen":"ср"}],"mean":[{"text":"hi"},{"text":"greeting"}]}]},{"text":"hello","pos":"verb","ts":"ˈheˈləʊ","tr":[{"text":"поздороваться","pos":"глагол","asp":"сов","syn":[{"text":"здороваться","pos":"глагол","asp":"несов"}],"mean":[{"text":"salute"}]}]}]}'
 ```
 
 License

@@ -3,17 +3,17 @@ from setuptools import setup
 from setuptools import find_packages
 
 
-setup(name='yandex.translate',
-      version='0.3.5',
-      author="yandex.translate contributors",
-      author_email="me@require.pm",
-      description='Python library for Yandex.Translate API.',
+setup(name='yandex.dictionary',
+      version='0.1.0',
+      author="yandex.dictionary contributors",
+      author_email="wdport@yahoo.com",
+      description='Python library for Yandex.Dictionary API.',
       license="DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE",
-      keywords="yandex yandex-translate translate",
-      url="https://github.com/tyrannosaurus/python-yandex-translate",
+      keywords="yandex yandex-dictionary dictionary",
+      url="https://github.com/kz20/python-yandex-dictionary",
       packages=find_packages(),
-      package_dir={'yandex_translate': 'yandex_translate'},
-      provides=['yandex_translate'],
+      package_dir={'yandex_dictionary': 'yandex_dictionary'},
+      provides=['yandex_dictionary'],
       classifiers=[
           'Intended Audience :: Developers',
           'Development Status :: 3 - Alpha',
