@@ -1,4 +1,5 @@
 # coding: utf-8
+import json
 
 import requests
 import requests.exceptions
@@ -20,8 +21,9 @@ class YandexDictionaryException(Exception):
         503: "ERR_SERVICE_NOT_AVAIBLE",
     }
 
-    def __init__(self, status_code, *args, **kwargs):
-        message = self.error_codes.get(status_code)
+    def __init__(self, message, status_code, *args, **kwargs):
+        # message = self.error_codes.get(status_code)
+        self.status_code = status_code
         super(YandexDictionaryException, self).__init__(
             message, *args, **kwargs)
 
@@ -118,9 +120,13 @@ class YandexDictionary(object):
         except ConnectionError:
             raise YandexDictionaryException(503)
         status_code = response.status_code
+        response_data = json.loads(response.text)
         if status_code != 200:
-            raise YandexDictionaryException(status_code)
-        return response.text
+            raise YandexDictionaryException(
+                response_data['message'],
+                status_code
+            )
+        return response_data
 
 if __name__ == "__main__":
     import doctest
